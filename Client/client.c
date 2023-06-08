@@ -88,7 +88,6 @@ int main() {
     char answerAboutPass[SIZE];
     ans_len = recv(sock, answerAboutPass, sizeof(answerAboutPass), 0);
     printf("%s", answerAboutPass);
-    //write(1, answerAboutPass, ans_len);
 
     if (strcmp(answerAboutPass, "\nYou entered a wrong password!\n") == 0) {
         //shutdown(sock, SHUT_RDWR);
@@ -118,12 +117,6 @@ int main() {
         //fgets(messageForServer, sizeof(messageForServer), stdin);
         send(sock, &point, sizeof(point), 0);
         send(sock, &circle, sizeof(circle), 0);
-        /* if (strcmp(messageForServer, "exit\n") == 0) {
-            //sleep(1);
-            //shutdown(sock, SHUT_RDWR);
-            close(sock);
-            break;
-        } */
 
         // Getting result from server
         memset((char *)&messageFromServer, '\0', sizeof(messageFromServer));
